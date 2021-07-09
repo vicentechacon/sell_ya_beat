@@ -1,0 +1,103 @@
+*{
+    margin:0;
+    padding:0;
+    color: #737373;
+    font-family: 'Work Sans', sans-serif; 
+}
+body{
+    background-color: #1E1D1F;
+}
+
+nav{
+    background-color: #1E1D1F;
+}
+nav a{
+    text-decoration: none;
+    color: #737373;
+    margin: 0 5px;
+}
+
+.navbar{
+    position: fixed;
+    z-index: 10; 
+    width: 100vw;
+    box-sizing: content-box;
+}
+
+.navbar-brand{
+    color: #737373;
+    font-size: 30px;
+    margin-left: 15px;
+    position: fixed;
+}
+
+.side-bar{
+    background-color: #1E1D1F;
+    height: 100%;
+    position: fixed;
+    top:50%;
+    transform: translateY(-50%);
+}
+.side-bar a{
+    text-decoration: none;
+    color: #737373;
+}
+
+.categories{
+    margin-top:160px;
+}
+
+.categories li{
+    margin: 70px 21px 0 0;
+    list-style: none;
+    font-size: 35px;
+    text-align: center ;
+
+}
+
+.main{
+    background-color: black;
+}
+
+.contenido{
+    margin-top:30px;
+    padding: 20px;
+}
+
+.nombre_beat{
+    text-decoration: none;
+    color:#737373;
+    width: 200px;
+}
+.delete{
+    text-decoration: none;
+    color: red;
+}
+.edit{
+    text-decoration: none;
+}
+
+.card{
+    top:56px;
+}
+
+.user_id{
+    text-decoration: none;
+    color: #737373;
+}
+.container{
+    margin-top: 5em;
+}
+button{
+    height: 38px;
+}
+.footer{
+    background-color: #1E1D1F;
+    height: 30px;
+}
+.footer h1{
+    color:white;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 15px;
+}

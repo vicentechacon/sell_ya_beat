@@ -1,0 +1,52 @@
+*{
+    margin:0;
+    padding:0;
+    color: #737373;
+    font-family: 'Work Sans', sans-serif; 
+}
+
+nav{
+    background-color: #1E1D1F;
+}
+nav a{
+    text-decoration: none;
+    color: #737373;
+    margin: 0 5px;
+}
+
+.navbar{
+    position: fixed;
+    z-index: 10; 
+    width: 100vw;
+    box-sizing: content-box;
+}
+
+.navbar-brand{
+    color: #737373;
+    font-size: 30px;
+    margin-left: 15px;
+    position: fixed;
+}
+
+.contenido{
+    padding-top: 5em;
+}
+
+audio{
+    width:100%;
+}
+
+.second{
+    padding: 10px;
+    height: 80px;
+}
+.delete{
+    text-decoration: none;
+    color: red;
+}
+.edit{
+    text-decoration: none;
+}
+.primero{
+    margin-top: 43px;
+}

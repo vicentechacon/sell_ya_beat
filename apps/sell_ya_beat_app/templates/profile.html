@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+    <script src src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <title>Profile</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand" href="/home"> <i>SellYaBeat&copy;</i></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class='search d-flex'>
+            <div>
+                <form action="" method='GET'>
+                    {% csrf_token %}
+                    <input name='query' class='form-control w-100' type="search" placeholder="Buscar">
+            </div>
+            <div>
+                <button style='border-radius: 8px;'>Buscar</button>
+            </div>
+            </form>
+        </div>
+        </class>
+        <div>
+            <a href="/user/{{user.id}}">PERFIL</a>
+            <a href="/upload">PUBLICA UN BEAT</a>
+            {% if 'id' in request.session %}
+            <a class="btn btn-outline-danger" href="/auth/logout/">LOGOUT</a>
+            {% endif %}
+        </div>
+    </nav>
+    <div class='contenido container'>
+        <div class='d-flex'>
+            <h3 class='display-3'>{{user.first_name}} {{user.last_name}}</h3>
+            {% if request.session.id == user.id %}
+            <a class='edit primero' href="/edit_user/{{user.id}}">Edit</a>
+            {% endif %}
+        </div>
+        <section class="d-flex flex-wrap">
+            {% for beat in beats %}
+            <div class="card m-2" style="width: 18rem;">
+                <img src="{% static 'img/music.png' %}" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">{{beat.name}}</h5>
+                    {% if request.session.id == beat.uploaded_by.id%}
+                    <div>
+                        <a class='delete' href="/delete/{{beat.id}}">Delete</a>
+                        <a class='edit' href="/edit/{{beat.id}}">Edit</a>
+                    </div>
+                    {% endif %}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Category: {{ beat.category }}</li>
+                    <li class="list-group-item">Fecha creación: {{ beat.created_at }}</li>
+                    <li class="list-group-item"> Likes: {{beat.likes.count}} {% if beat.likes.count == 1 %} like
+                        {% else %}
+                        likes {% endif %}</li>
+                    <li class="list-group-item">${{beat.price}} USD</li>
+                </ul>
+                <div class="card-body second">
+                    <audio preload="auto" controls="" class="history_audio_player">
+                        <source type="audio/mpeg" src="" />
+                    </audio> <a href="/sound_download/" class="audio_download"> <img src="" style="height:30px;" />
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+    </div>
+</body>
+
+</html>

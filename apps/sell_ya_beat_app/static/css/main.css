@@ -1,0 +1,28 @@
+.contenedor{
+    position: relative;
+    display: inline-block;
+    text-align:start;
+}
+
+.title{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color:white;
+}
+.center{
+    position: absolute;
+    margin-left: 400px;
+}
+
+
+.buttons{
+    width: 600px;
+    color: white;
+}
+
+.buttons a{
+    text-decoration: none;
+    color: white;
+}
+
